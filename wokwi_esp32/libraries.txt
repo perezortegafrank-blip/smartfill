@@ -1,0 +1,2 @@
+# Librerias para el simulador Wokwi (equivalen a lib_deps de platformio.ini)
+Firebase-ESP-Client

@@ -1,0 +1,10 @@
+# Credenciales reales (nunca versionar)
+credentials.h
+secrets*.h
+
+# Salida de compilación PlatformIO
+.pio/
+build/
+
+# Archivos locales del editor
+.vscode/

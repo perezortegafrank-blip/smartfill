@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "207035684593",
+    "project_id": "smartfill-e528b",
+    "storage_bucket": "smartfill-e528b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:207035684593:android:20e30b95986d3dad403b50",
+        "android_client_info": {
+          "package_name": "com.example.ecotechapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDaeRi5XEtzz-xZ5SeVf7lsFvfuQfEJMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

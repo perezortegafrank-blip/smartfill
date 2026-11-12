@@ -1,0 +1,63 @@
+{
+  "_comentario": "SmartFill — Reglas de Firebase Realtime Database (ISO 27400). Solo clientes autenticados (auth != null) pueden leer/escribir. Pega este JSON en Firebase Console → Realtime Database → Rules.",
+  "rules": {
+    "dispensers": {
+      ".read": "auth != null",
+      "$dispenserId": {
+        ".write": "auth != null",
+        ".validate": "newData.hasChildren()",
+        "nivel_porcentaje": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+        },
+        "levelPercent": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+        },
+        "distancia_cm": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 400"
+        },
+        "requiere_cambio": {
+          ".validate": "newData.isBoolean()"
+        },
+        "estado_bidon": {
+          ".validate": "newData.isString() && newData.val().matches(/^(Lleno|Nivel Bajo|Vacío - Reemplazar)$/) && newData.val().length <= 50"
+        },
+        "bomba_estado": {
+          ".write": "auth != null"
+        },
+        "sensor_id": {
+          ".validate": "newData.isString() && newData.val().length <= 30"
+        },
+        "id":       { ".validate": "newData.isString() && newData.val().length <= 20" },
+        "name":     { ".validate": "newData.isString() && newData.val().length <= 80" },
+        "location": { ".validate": "newData.isString() && newData.val().length <= 120" },
+        "status":   { ".validate": "newData.isString() && newData.val().length <= 20" },
+        "lastRefill": { ".validate": "newData.isNumber()" },
+        "$other": { ".validate": true }
+      }
+    },
+    "alerts": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$alertId": {
+        ".validate": "newData.hasChildren(['dispenserId', 'severity', 'levelPercent'])",
+        "levelPercent": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100"
+        },
+        "severity": {
+          ".validate": "newData.isString() && newData.val().matches(/^(WARNING|CRITICAL)$/)"
+        },
+        "$other": { ".validate": true }
+      }
+    },
+    "history": {
+      ".read": "auth != null",
+      ".write": "auth != null",
+      "$logId": {
+        ".validate": "newData.hasChildren(['dispenserId', 'technicianName'])",
+        "$other": { ".validate": true }
+      }
+    },
+    ".read": false,
+    ".write": false
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "version": "1.1",
+  "author": "SmartFill IoT Team",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp",
+      "top": -20,
+      "left": -20,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "hc",
+      "top": 40,
+      "left": 300,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 220,
+      "left": 360,
+      "attrs": { "value": "1000" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": 290,
+      "left": 360,
+      "attrs": { "value": "2000" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led",
+      "top": 60,
+      "left": 380,
+      "attrs": { "color": "blue", "label": "BOMBA" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz",
+      "top": 150,
+      "left": -140,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [
+      "esp:3V3",
+      "hc:VCC",
+      "red",
+      []
+    ],
+    [
+      "esp:GND.1",
+      "hc:GND",
+      "black",
+      []
+    ],
+    [
+      "esp:D5",
+      "hc:TRIG",
+      "cyan",
+      []
+    ],
+    [
+      "hc:ECHO",
+      "r1:1",
+      "yellow",
+      []
+    ],
+    [
+      "r1:2",
+      "esp:D18",
+      "yellow",
+      []
+    ],
+    [
+      "r1:2",
+      "r2:1",
+      "yellow",
+      []
+    ],
+    [
+      "r2:2",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D25",
+      "led:A",
+      "orange",
+      []
+    ],
+    [
+      "led:C",
+      "esp:GND.2",
+      "black",
+      []
+    ],
+    [
+      "esp:D26",
+      "bz:2",
+      "magenta",
+      []
+    ],
+    [
+      "bz:1",
+      "esp:GND.3",
+      "black",
+      []
+    ]
+  ]
+}

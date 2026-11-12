@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/DashboardFragment">
+
+    <fragment
+        android:id="@+id/DashboardFragment"
+        android:name="com.example.ecotechapp.ui.DashboardFragment"
+        android:label="Dispensadores de Agua"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/action_DashboardFragment_to_DispenserDetailFragment"
+            app:destination="@id/DispenserDetailFragment" />
+        <action
+            android:id="@+id/action_DashboardFragment_to_AlertsFragment"
+            app:destination="@id/AlertsFragment" />
+        <action
+            android:id="@+id/action_DashboardFragment_to_HistoryFragment"
+            app:destination="@id/HistoryFragment" />
+        <action
+            android:id="@+id/action_DashboardFragment_to_SettingsFragment"
+            app:destination="@id/SettingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/DispenserDetailFragment"
+        android:name="com.example.ecotechapp.ui.DispenserDetailFragment"
+        android:label="Detalle y Sensor Garrafón"
+        tools:layout="@layout/fragment_dispenser_detail" />
+
+    <fragment
+        android:id="@+id/AlertsFragment"
+        android:name="com.example.ecotechapp.ui.AlertsFragment"
+        android:label="Alertas Garrafones Vacíos"
+        tools:layout="@layout/fragment_alerts" />
+
+    <fragment
+        android:id="@+id/HistoryFragment"
+        android:name="com.example.ecotechapp.ui.HistoryFragment"
+        android:label="Historial de Cambios"
+        tools:layout="@layout/fragment_history" />
+
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="com.example.ecotechapp.ui.SettingsFragment"
+        android:label="Configuración Firebase &amp; MySQL"
+        tools:layout="@layout/fragment_settings" />
+
+</navigation>

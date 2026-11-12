@@ -1,0 +1,11 @@
+# Android
+appandroid/local.properties
+appandroid/.gradle/
+appandroid/build/
+appandroid/app/build/
+
+# Credenciales reales (solo plantillas versionadas)
+wokwi_esp32/credentials.h
+wokwi_esp32/secrets*.h
+wokwi_esp32/.pio/
+wokwi_esp32/build/
